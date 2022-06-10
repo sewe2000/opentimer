@@ -34,4 +34,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 
-unix:!macx: LIBS += -lusb-1.0

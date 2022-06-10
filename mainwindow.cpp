@@ -10,10 +10,6 @@
 #include <QFileDialog>
 #include <QRegularExpression>
 
-#include <libusb-1.0/libusb.h>
-
-
-
 LastSolvesDashboard *MainWindow::p_last_solves_dashboard;
 ScrambleGenerator *MainWindow::scramble_generator;
 Timer *MainWindow::p_cubing_timer;
@@ -93,7 +89,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     session_file->close();
-    libusb_exit(NULL);
 }
 
 void MainWindow::first_session()
