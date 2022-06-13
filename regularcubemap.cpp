@@ -50,6 +50,17 @@ Side::Side(QColor color, ushort dim) :  QPixmap( dim * (30 / ((float)dim / 3)), 
 
     delete painter;
 }
+
+Side:: ~Side()
+{
+        delete base_color_sticker;
+        for(auto& i : stickers)
+        {
+                for(auto j : i)
+                    delete j;
+        }
+}
+
 void Side::redraw(const QPixmap& other)
 {
 
@@ -74,6 +85,7 @@ void Side::redraw(const QPixmap& other)
         }
     }
     painter->end();
+    delete painter;
 }
 
 void Side::set_temp_stickers(const std::vector<QPixmap*>& st)
@@ -236,6 +248,13 @@ RegularCubeMap::RegularCubeMap(ushort cube_dimension) :QLabel()
     painter->end();
     delete painter;
     setPixmap(*cube_map);
+}
+
+RegularCubeMap::~RegularCubeMap()
+{
+     for(int i = 0; i < 6; i++)
+         delete sides[i];
+     delete cube_map;
 }
 
 void RegularCubeMap::make_move(const QString& move)
@@ -423,5 +442,6 @@ void RegularCubeMap::redraw()
     painter->drawPixmap(QPointF(2 * side_width, side_height), *sides[5]);
 
     painter->end();
+    delete painter;
     setPixmap(*cube_map);
 }

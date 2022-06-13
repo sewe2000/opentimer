@@ -16,6 +16,7 @@ public:
 
 
     Side(QColor color, ushort dimension);
+    ~Side();
 
     void set_stickers(const std::vector<QPixmap>& stickers_to_paint, Edge trg_edge);
     void redraw(const QPixmap& other = QPixmap(0,0));
@@ -49,7 +50,7 @@ class RegularCubeMap :public QLabel
 public:
 
     RegularCubeMap(ushort cube_dimension);
-
+    ~RegularCubeMap();
 
     void make_move(const QString& move);
     void rotate_side(ushort side_index, bool prim = false);

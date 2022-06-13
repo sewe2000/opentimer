@@ -13,18 +13,18 @@ class LastSolvesDashboard : public QDockWidget
     Q_OBJECT
 public:
     LastSolvesDashboard(QWidget* parent = nullptr);
+    ~LastSolvesDashboard();
 
         void addRecord(QString text, QDataStream *str = nullptr);
         void read_solves_from_session(QDataStream *stream);
         void clear();
 private:
-        QLabel heading;
+        QLabel *heading;
+        QFont *regular_font;
         QLabel *ao5, *ao12;
         QHBoxLayout *avg_solves_layout;
-        QFont heading_font;
-        QFont regular_font;
         QVBoxLayout layout;
-        QWidget background_widget;
+        QWidget *background_widget;
         unsigned short number_of_solves = 0;
         std::deque<QLabel*> last_solves;
 

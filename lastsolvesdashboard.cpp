@@ -7,21 +7,23 @@
 
 LastSolvesDashboard::LastSolvesDashboard(QWidget* parent): QDockWidget("Last Solves", parent)
 {
-        heading_font = QFont( "Roboto Mono", 40);
+        QFont heading_font = QFont( "Roboto Mono", 40);
+        regular_font = new QFont("Roboto Mono", 16);
+        background_widget = new QWidget(this);
+        heading = new QLabel(this);
         heading_font.setBold(true);
-        regular_font = QFont("Roboto Mono", 16);
 
-        heading.setText("Last Solves:");
-        heading.setFont(heading_font);
-        setWidget(&background_widget);
-        background_widget.setLayout(&layout);
-        layout.addWidget(&heading);
+        heading->setText("Last Solves:");
+        heading->setFont(heading_font);
+        setWidget(background_widget);
+        background_widget->setLayout(&layout);
+        layout.addWidget(heading);
         layout.addStretch(5);
 
-        ao5 = new QLabel("Ao5: -");
-        ao12 = new QLabel("Ao12: -");
-        ao5->setFont(regular_font);
-        ao12->setFont(regular_font);
+        ao5 = new QLabel("Ao5: -", this);
+        ao12 = new QLabel("Ao12: -", this);
+        ao5->setFont(*regular_font);
+        ao12->setFont(*regular_font);
         ao5->setAlignment(Qt::AlignHCenter);
         ao12->setAlignment(Qt::AlignHCenter);
 
@@ -34,6 +36,11 @@ LastSolvesDashboard::LastSolvesDashboard(QWidget* parent): QDockWidget("Last Sol
         setStyleSheet("LastSolvesDashboard { border: 3px solid black; }");
 
 
+}
+LastSolvesDashboard::~LastSolvesDashboard() {
+    for(auto i : last_solves)
+        delete i;
+    delete regular_font;
 }
 
 void LastSolvesDashboard::addRecord(QString text, QDataStream *str)
@@ -48,7 +55,7 @@ void LastSolvesDashboard::addRecord(QString text, QDataStream *str)
         text.prepend(QString::number(number_of_solves) + ".");
     last_solves.push_back(new QLabel(text));
     QLabel *back = last_solves.back();
-    back->setFont(regular_font);
+    back->setFont(*regular_font);
     back->setAlignment(Qt::AlignHCenter);
 
     if(last_solves.size() >= 5)

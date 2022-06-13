@@ -44,6 +44,9 @@ class Timer :public QLabel
 
         void refresh(const qint64& time_in_ms);
         void reset() { refresh_timer.stop(); stop_holding();}
+   signals:
+        void focus();
+        void blur();
 
 
 };

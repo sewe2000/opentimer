@@ -10,10 +10,6 @@
 #include <QFileDialog>
 #include <QRegularExpression>
 
-LastSolvesDashboard *MainWindow::p_last_solves_dashboard;
-ScrambleGenerator *MainWindow::scramble_generator;
-Timer *MainWindow::p_cubing_timer;
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     p_cubing_timer = new Timer(p_window_widget);
     p_cubing_timer->setMinimumWidth(p_cubing_timer->sizeHint().width());
+    QObject::connect(p_cubing_timer, &Timer::focus, this, &MainWindow::get_into_focus_mode);
+    QObject::connect(p_cubing_timer, &Timer::blur, this, &MainWindow::get_outof_focus);
 
     p_last_solves_dashboard = new LastSolvesDashboard(p_window_widget);
     scramble_generator = new ScrambleGenerator(this);
@@ -89,6 +87,13 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     session_file->close();
+    delete session_file;
+    delete session_stream;
+    delete base_dir;
+    for(auto i : file_menu->actions())
+        delete i;
+    for(auto i : help_menu->actions())
+        delete i;
 }
 
 void MainWindow::first_session()

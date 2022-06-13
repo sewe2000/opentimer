@@ -45,6 +45,7 @@ ScrambleGenerator::ScrambleGenerator(QWidget *parent) : QDockWidget("Scramble Ge
         QIntValidator *validator = new QIntValidator(1,30);
         length_edit = new QLineEdit();
         length_edit->setValidator(validator);
+        delete validator;
         length_edit->setText("22");
         length_edit->setPlaceholderText("Enter the length of the scramble");
         layout->addWidget(length_edit);
@@ -65,6 +66,11 @@ ScrambleGenerator::ScrambleGenerator(QWidget *parent) : QDockWidget("Scramble Ge
         current_cube = CubeType::three_x_three;
 
 
+}
+
+ScrambleGenerator::~ScrambleGenerator()
+{
+        delete heading_font;
 }
 
 void ScrambleGenerator::generate_scramble(ushort length)

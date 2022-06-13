@@ -23,6 +23,7 @@ Timer::Timer(QWidget *parent) :QLabel("00:00.000", parent)
 Timer::~Timer()
 {
     delete p_timer;
+    delete p_font;
 }
 
 void Timer::changeState(State target_state)
@@ -33,12 +34,12 @@ void Timer::changeState(State target_state)
         {
            setStyleSheet("Timer { color: black; }");
            if(target_state == State::NEUTRAL)
-               MainWindow::get_outof_focus();
+               emit blur();
         }
         else if(target_state == State::READY)
         {
            setStyleSheet("Timer { color: green; }");
-           MainWindow::get_into_focus_mode();
+           emit focus();
         }
 
         e_state = target_state;
@@ -69,3 +70,4 @@ void Timer::refresh(const qint64& time_in_ms)
     t = t.addMSecs(time_in_ms);
     setText(t.toString(_TIME_FORMAT));
 }
+

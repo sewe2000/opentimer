@@ -20,7 +20,7 @@ class ScrambleButton : public QPushButton
 public:
     ScrambleButton(const QString & text, QWidget * parent = nullptr): QPushButton(text, parent) {}
 protected:
-    void keyPressEvent(QKeyEvent * e) override {
+    void keyPressEvent(QKeyEvent*) override {
         QKeyEvent *space = new QKeyEvent(QEvent::KeyPress,Qt::Key_Space, Qt::NoModifier);
         QCoreApplication::postEvent(parent()->parent(), space);
     }
@@ -32,6 +32,7 @@ class ScrambleGenerator : public QDockWidget
 public:
 
     ScrambleGenerator(QWidget *parent = nullptr);
+    ~ScrambleGenerator();
     void generate_scramble(ushort length);
     int get_length() {return length_edit->text().toUInt();}
 private:
