@@ -5,16 +5,27 @@ Fast and minimal speedcubing timer written in Qt.
 
 # Table of contents
 1. [Features](#Features)
-2. [Building from source](#build)
-  1. [On Linux](#linux_build)
+2. [Installation](#installation)
+   - [For Microsoft Windows](#install_windows)
+3. [Building from source](#build)
+   - [On Linux](#linux_build)
+
 
 ## Features <a name="Features"></a>
 - Written using C++ and Qt so it's **blazingly fast**
 - Code is open and minimal so **anyone can work on it**
 - User Interface made of dock widgets which provides opportunities for **customisation**
 - The ability to **load and save** solving sessions on the disk
+- It is **Libre/Free software** under the GPL v3 License 
+- Does not **spy on you**
+- You can use it on both **Windows and Linux**
+- Supports 32-bit Windows machines so you can use it on **older hardware**
 - **Scramble generator** included
 - **Scramble previewer** included
+
+## Installation <a name="installation"></a>
+### For Microsoft Windows <a name="install_windows"></a>
+Go to the [Release page](https://github.com/sewe2000/opentimer/releases) of this project and grab 'opentimer-installer-x86.exe' file, open it and follow the instructions.
 
 ## Building from source <a name="build"></a>
 ### Dependencies <a name="deps"></a>
