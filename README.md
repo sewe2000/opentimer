@@ -30,7 +30,6 @@ Go to the [Release page](https://github.com/sewe2000/opentimer/releases) of this
 ## Building from source <a name="build"></a>
 ### Dependencies <a name="deps"></a>
 - Qt5
-- libUSB
 - make
 ### On Linux <a name="linux_build"></a>
 1. Clone this repo:
@@ -49,5 +48,5 @@ make
 ```
 4.  Run opentimer:
 ```bash
-./speedcubing-timer
+./opentimer
 ```
