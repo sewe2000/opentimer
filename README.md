@@ -42,7 +42,6 @@ cd opentimer
 ```
 3. Configure and compile:
 ```bash
-make clean
 qmake -config release
 make
 ```
