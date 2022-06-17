@@ -6,9 +6,11 @@ Fast and minimal speedcubing timer written in Qt.
 # Table of contents
 1. [Features](#Features)
 2. [Installation](#installation)
-   - [For Microsoft Windows](#install_windows)
+   + [For Microsoft Windows](#install_windows)
+   + [For Linux](#linux-install)
+      - [Arch-based distros](#aur-install)
 3. [Building from source](#build)
-   - [On Linux](#linux_build)
+   + [On Linux](#linux_build)
 
 
 ## Features <a name="Features"></a>
@@ -26,6 +28,13 @@ Fast and minimal speedcubing timer written in Qt.
 ## Installation <a name="installation"></a>
 ### For Microsoft Windows <a name="install_windows"></a>
 Go to the [Release page](https://github.com/sewe2000/opentimer/releases) of this project and grab 'opentimer-installer-x86.exe' file, open it and follow the instructions.
+
+### For Linux <a name="linux-install"></a>
+#### Arch-based distros <a name="aur-install"></a>
+On Arch based distributions you can just download it from the AUR. For example if you're using yay:
+```
+yay -S opentimer
+```
 
 ## Building from source <a name="build"></a>
 ### Dependencies <a name="deps"></a>
