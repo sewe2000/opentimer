@@ -1,3 +1,9 @@
+![image](https://shields.io/tokei/lines/github/sewe2000/opentimer)
+![image](https://shields.io/github/downloads/sewe2000/opentimer/total)
+![image](https://shields.io/github/license/sewe2000/opentimer)
+![image](https://shields.io/aur/version/opentimer)
+![image](https://shields.io/github/v/release/sewe2000/opentimer?display_name=tag&include_prereleases)
+
 # OpenTimer
 Fast and minimal speedcubing timer written in Qt.
 
