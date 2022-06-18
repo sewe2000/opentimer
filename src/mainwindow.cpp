@@ -1,5 +1,5 @@
 #include "../include/mainwindow.hpp"
-#include "../ui_mainwindow.h"
+#include "ui_mainwindow.h"
 
 #include <QKeyEvent>
 #include <QTimer>
@@ -48,8 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     exit->setShortcut(QKeySequence(tr("Ctrl+Q")));
     QObject::connect(exit, &QAction::triggered, this, &MainWindow::exit_app );
 
-    QAction *about = new QAction(tr("&About"));
-    QObject::connect(about, &QAction::triggered, this, &MainWindow::about);
+    QAction *about_action = new QAction(tr("&About"));
+    QObject::connect(about_action, &QAction::triggered, this, &MainWindow::about);
 
     QAction *new_session_action = new QAction(tr("&New Session"));
     new_session_action->setShortcut(QKeySequence(tr("Ctrl+N")));
@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent)
     file_menu->addAction(new_session_action);
     file_menu->addAction(load_session_action);
     file_menu->addAction(exit);
-    help_menu->addAction(about);
+    help_menu->addAction(about_action);
 
     QObject::connect(this, &MainWindow::timer_stopped, scramble_generator, &ScrambleGenerator::generate );
 

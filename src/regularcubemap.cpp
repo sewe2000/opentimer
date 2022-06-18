@@ -12,9 +12,8 @@
  * ===================================================
  */
 
-Side::Side(QColor color, ushort dim) :  QPixmap( dim * (30 / ((float)dim / 3)), dim * (30 / ((float)dim / 3)) )
+Side::Side(QColor color, ushort dim) :  QPixmap( dim * (30 / ((float)dim / 3)), dim * (30 / ((float)dim / 3)) ), sticker_width(width() / dim), sticker_height(sticker_width)
 {
-    sticker_width = sticker_height = width() / dim;
     QPainter *painter = new QPainter();
     dimension = dim;
 
@@ -137,13 +136,11 @@ std::vector<QPixmap> Side::get_temp_stickers()
 std::vector<QPixmap> Side::get_stickers(Edge source_edge)
 {
      using index_type = std::vector<QPixmap>::size_type;
-     std::vector<QPixmap> result;
+    std::vector<QPixmap> result;
      switch (source_edge)
      {
          case Edge::U:
-
-         for(auto i: stickers[0])
-             result.push_back(*i);
+                std::transform(stickers[0].begin(), stickers[0].end(), std::back_inserter(result), [] (const QPixmap *pixmap) -> QPixmap { return *pixmap; });
          break;
 
          case Edge::R:
@@ -154,8 +151,7 @@ std::vector<QPixmap> Side::get_stickers(Edge source_edge)
 
          case Edge::D:
 
-         for(auto i: stickers.back())
-             result.push_back(*i);
+                std::transform(stickers.back().begin(), stickers.back().end(), std::back_inserter(result), [] (const QPixmap* pixmap) -> QPixmap { return *pixmap; });
          break;
 
          case Edge::L:

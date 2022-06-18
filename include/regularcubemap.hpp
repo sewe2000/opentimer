@@ -49,7 +49,7 @@ class RegularCubeMap :public QLabel
     Q_OBJECT
 public:
 
-    RegularCubeMap(ushort cube_dimension);
+    explicit RegularCubeMap(ushort cube_dimension);
     ~RegularCubeMap();
 
     void make_move(const QString& move);
