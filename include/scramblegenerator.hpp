@@ -1,8 +1,8 @@
 #ifndef SCRAMBLEGENERATOR_H
 #define SCRAMBLEGENERATOR_H
 
-#include "types.h"
-#include "regularcubemap.h"
+#include "types.hpp"
+#include "regularcubemap.hpp"
 
 #include <QDockWidget>
 #include <QObject>

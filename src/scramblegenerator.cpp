@@ -1,4 +1,4 @@
-#include "scramblegenerator.h"
+#include "../include/scramblegenerator.hpp"
 
 #include <QRandomGenerator>
 #include <QPushButton>

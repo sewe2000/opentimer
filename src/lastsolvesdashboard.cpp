@@ -1,4 +1,4 @@
-#include "lastsolvesdashboard.h"
+#include "../include/lastsolvesdashboard.hpp"
 
 #include <QFontDatabase>
 #include <QTime>

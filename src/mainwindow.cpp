@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "../include/mainwindow.hpp"
+#include "../ui_mainwindow.h"
 
 #include <QKeyEvent>
 #include <QTimer>

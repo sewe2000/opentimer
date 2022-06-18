@@ -1,5 +1,5 @@
-#include "timer.hpp"
-#include "mainwindow.h"
+#include "../include/timer.hpp"
+#include "../include/mainwindow.hpp"
 
 #include <QTime>
 #include <QThread>

@@ -1,4 +1,4 @@
-#include "regularcubemap.h"
+#include "../include/regularcubemap.hpp"
 
 #include <QPixmap>
 #include <QPainter>

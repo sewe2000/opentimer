@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include "timer.hpp"
-#include "lastsolvesdashboard.h"
-#include "scramblegenerator.h"
+#include "lastsolvesdashboard.hpp"
+#include "scramblegenerator.hpp"
 
 #include <QMainWindow>
 #include <QHBoxLayout>
